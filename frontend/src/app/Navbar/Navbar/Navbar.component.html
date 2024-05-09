@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg fixed-top bg-white ">
+  <div class="container-fluid">
+    <div class = "logo-container">
+      <a routerLink="/"><img id="logo" src="assets/Images/logo.png" alt="logo image"></a>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div>
+        <ul class="nav navbar-nav">
+          <li *ngIf="!loggedin()" class="nav-item">
+            <a class="nav-link custom-link" 
+            routerLinkActive="active" routerLink="/sign-up" >Register</a>
+          </li>
+          <li *ngIf="!loggedin()" class="nav-item">
+            <a class="nav-link custom-link"
+            routerLinkActive="active" routerLink="/log-in" >Login</a>
+          </li>
+          <div *ngIf="loggedin()" class="dropdown m-2">
+              <a class="dropdown-toggle ml-auto" type="button" data-bs-toggle="dropdown" aria-expanded="false" [style.color]="'#ff6600'">
+                Welcome {{loggedinuser}}
+              </a>
+              <ul class="dropdown-menu dropdown-menu-sm-start">
+                <li><a class="dropdown-item" href="#">
+                  <i class="fa-solid fa-user icon"></i> My Feedbacks</a></li>
+                <li><a class="dropdown-item" href="#">
+                  <i class="fa-solid fa-key icon"></i> Change Password</a></li>
+                <li><a class="dropdown-item" (click)="Onlogout()">
+                  <i class="fa-solid fa-right-from-bracket icon"></i> Logout</a></li>
+              </ul>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

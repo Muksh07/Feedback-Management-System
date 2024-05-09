@@ -1,0 +1,25 @@
+.card-header{
+    color: black;
+    font-weight: bold;
+}
+.btn-primary-custom{
+    background-color: black;
+    border: none; 
+    width: 100%;
+    margin-top: 8px;
+}
+.required{
+  color: #ff334b; 
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
+/* .invalid-rating {
+  border-color: red; 
+}
+
+.invalid-feedback {
+  color: red; 
+  font-size: 0.9em;
+  margin-top: 0.25rem;
+} */

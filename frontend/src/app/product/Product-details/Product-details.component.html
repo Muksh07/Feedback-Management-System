@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <div *ngIf="product" class="card">
+    <div class="card-img-wrapper">
+      <img *ngIf="product.imageUrl" class="card-img-top" [src]="'assets/Images/' + product.imageUrl" style="width: 100%; height: auto;">
+      <img *ngIf="!product.imageUrl" class="card-img-top" src="assets/Images/logo.png" style="width: 100%; height: auto;">
+    </div>
+    <div class="card-body">
+      <h1>{{ product.name }}</h1>
+      <p><strong>Description:</strong> {{ product.description }}</p>
+      <p><strong>Clients:</strong> {{ product.clients }}</p>
+    </div>
+  </div>
+</div>
+

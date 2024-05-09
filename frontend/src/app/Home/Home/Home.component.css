@@ -1,0 +1,6 @@
+#logo {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure image stays within container */
+    margin: 0 auto; /* Center the image horizontally */
+}

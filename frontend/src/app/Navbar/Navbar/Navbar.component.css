@@ -1,0 +1,29 @@
+.logo-container
+{
+   height: 40px;
+   width: 200px;
+}
+#logo
+{
+   height: 45px;
+   width: 150px;
+}
+.navbar
+{
+    background-color: chocolate;
+}
+nav a {
+   cursor: pointer;
+}
+.active{
+   border-bottom: 2px solid rgb(5, 0, 9);
+   transform: scale(1); 
+}
+.custom-link 
+{
+   color: #ff6600; 
+   font-weight: bold; 
+ }
+ .icon{
+   color: #ff6600; 
+ }

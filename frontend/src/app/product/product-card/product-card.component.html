@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-img-wrapper">
+    <img *ngIf="product.imageUrl" class="card-img-top" src="assets/Images/{{product.imageUrl}}" style="width: 100%; height: auto;">
+    <img *ngIf="!product.imageUrl" class="card-img-top" src="assets/Images/logo.png">
+    <ul *ngIf="!hiddenIcons" class="list-inline text-center member-icon animate">
+      <li class="list-inline-item">
+        <button class="btn btn-primary custom-btn-primary" [routerLink]="['/feedback', product.id]"><i class="fa-solid fa-comment-medical"></i></button>
+      </li>
+      <li class="list-inline-item">
+        <button class="btn btn-primary custom-btn-primary"  [routerLink]="['/product-details', product.id]"><i class="fa-solid fa-info"></i></button>
+      </li>
+    </ul>
+  </div>
+    <div class="card-body pad1">
+      <h1>{{product.name}}</h1>
+    </div>
+</div>
