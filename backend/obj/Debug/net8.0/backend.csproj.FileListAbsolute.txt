@@ -139,3 +139,4 @@ C:\AngularPractice\case2\backend\backend\obj\Debug\net8.0\backend.pdb
 C:\AngularPractice\case2\backend\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 C:\AngularPractice\case2\backend\backend\obj\Debug\net8.0\ref\backend.dll
 C:\AngularPractice\case2\backend\backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\AngularPractice\case2\backend\backend\obj\Debug\net8.0\backend.sourcelink.json

@@ -1,9 +1,10 @@
-import { Component, Injectable } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormsModule, NgForm} from '@angular/forms';
 import { Router, RouterLinkActive } from '@angular/router';
 import { UserService } from '../../../Services/User.service';
 import { CommonModule } from '@angular/common';
 import { AlertifyService } from '../../../Services/alertify.service';
+import { RoleBaseService } from '../../../Security/RoleBase.service';
 // import { RoleBasedService } from '../../../Services/Role-based.service';
 @Component({
   selector: 'app-login',
@@ -18,8 +19,7 @@ export class LoginComponent
   password: string = '';
   errorMessage: string = '';
   constructor(private authService: UserService,private myRouter: Router ,
-              private alertify:AlertifyService) { }
-
+              private alertify:AlertifyService,private rolebase:RoleBaseService) { }
   onLogin(loginForm: NgForm): void 
   {
     if (loginForm.valid) {  
@@ -30,7 +30,10 @@ export class LoginComponent
           if (response.token) 
           {
             localStorage.setItem('token', response.token);
-            
+
+            const user = this.rolebase.decodeToken(response.token);
+            this.rolebase.updateCurrentUser(user);
+
             this.alertify.success('Login successfull')
             this.myRouter.navigate(['products'])
           } 

@@ -4,7 +4,6 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RoleBaseService } from '../../Security/RoleBase.service';
 // import { RoleBasedService } from '../../Services/Role-based.service';
-
 @Component({
   selector: 'app-Navbar',
   standalone: true,
@@ -12,17 +11,13 @@ import { RoleBaseService } from '../../Security/RoleBase.service';
   templateUrl: './Navbar.component.html',
   styleUrls: ['./Navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
-
-
+export class NavbarComponent implements OnInit 
+{
   public loggedinuser : string = '';
-
   constructor(private alertify:AlertifyService,private router: Router,
     private rolebase: RoleBaseService) 
-  { 
-    
+  {  
   }
-
   ngOnInit() 
   {
     this.rolebase.currentUser.subscribe(user => {
@@ -31,6 +26,7 @@ export class NavbarComponent implements OnInit {
       }
     });    
   }
+
   loggedin() :boolean
   {
     return localStorage.getItem('token') !== null;
@@ -40,13 +36,10 @@ export class NavbarComponent implements OnInit {
   {
     localStorage.removeItem('token');
     this.router.navigate(['/']);
+  } 
+
+  OnMyFeedback(): void
+  {
+    this.router.navigate(['/my-feedbacks']);
   }
-  
-
-  // OnLoginClick(): void 
-  // {
-  //   this.router.navigate(['/log-in']);
-  // }
-
- 
 }

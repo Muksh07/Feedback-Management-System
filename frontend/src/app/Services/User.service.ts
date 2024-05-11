@@ -15,6 +15,7 @@ export class UserService
     const loginData = { email, password };
     return this.http.post<any>(this.apiUrl, loginData);
   }
+  
   registerUser(user: IUser): Observable<any> 
   {
       return this.http.post<any>(this.apiUrlca, user);

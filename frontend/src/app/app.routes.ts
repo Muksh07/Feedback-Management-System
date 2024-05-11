@@ -5,6 +5,7 @@ import { HomeComponent } from './Home/Home/Home.component';
 import { ProductListComponent } from './product/Product-list/Product-list.component';
 import { ProductDetailsComponent } from './product/Product-details/Product-details.component';
 import { ProductFeedbackComponent } from './product/product-feedback/product-feedback.component';
+import { MyFeedbackComponent } from './MyFeedback/MyFeedback/MyFeedback.component';
 
 
 export const  myRouting :Routes = [
@@ -14,7 +15,8 @@ export const  myRouting :Routes = [
     { path: 'products', component: ProductListComponent },
     { path: 'product-details/:id', component: ProductDetailsComponent },
     {path: 'feedback/:productId' , component: ProductFeedbackComponent},
-    {path: 'product-details/:id', component: ProductDetailsComponent}
+    {path: 'product-details/:id', component: ProductDetailsComponent},
+    { path: 'my-feedbacks', component: MyFeedbackComponent }
     // {path: 'alumni-list', component: HomeComponent , canActivate:[customAuthentication]},
     // {path: '', component: StartBtnComponent},
 ]

@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
 export class RoleBaseService {
   private currentUserSubject: BehaviorSubject<any>;
-
   constructor() {
     const token = localStorage.getItem('token');
     const user = token ? this.decodeToken(token) : null;
     this.currentUserSubject = new BehaviorSubject<any>(user);
   }
 
-  private decodeToken(token: any): any 
+  public decodeToken(token: any): any 
   {
     try 
     {
@@ -27,7 +25,8 @@ export class RoleBaseService {
     }
   }
 
-  get currentUser() {
+  get currentUser() 
+  {
     return this.currentUserSubject.asObservable();
   }
 
@@ -35,6 +34,11 @@ export class RoleBaseService {
   {
     const token = localStorage.getItem('token');
     return this.decodeToken(token);
+  }
+
+  public updateCurrentUser(user: any): void 
+  {
+    this.currentUserSubject.next(user);
   }
 }
 

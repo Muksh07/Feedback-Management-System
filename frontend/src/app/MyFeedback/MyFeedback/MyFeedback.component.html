@@ -1,0 +1,46 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="feedbackList" class="mat-elevation-z8">
+
+    <!-- Product Name Column -->
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef> Product Name </th>
+      <td mat-cell *matCellDef="let feedback"> {{ feedback.productName }} </td>
+    </ng-container>
+
+    <!-- Rating Column -->
+    <ng-container matColumnDef="rating">
+      <th mat-header-cell *matHeaderCellDef> Rating </th>
+      <td mat-cell *matCellDef="let feedback"> {{ feedback.rating }} </td>
+    </ng-container>
+
+    <!-- Comment Column -->
+    <ng-container matColumnDef="comment">
+      <th mat-header-cell *matHeaderCellDef> Comment </th>
+      <td mat-cell *matCellDef="let feedback"> {{ feedback.comment }} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let feedback">
+        <button mat-icon-button color="primary" (click)="handleUpdateFeedback(feedback.id)" aria-label="Update">
+          <i class="fa-solid fa-pen-to-square"></i> 
+        </button>
+        <button mat-icon-button color="warn" (click)="handleDeleteFeedback(feedback.id)" aria-label="Delete">
+          <i class="fa-solid fa-trash"></i> 
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Table Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let feedback; columns: displayedColumns;"></tr>
+
+  </table>
+</div>
+
+  
+
+
+
+

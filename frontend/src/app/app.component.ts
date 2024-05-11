@@ -11,15 +11,17 @@ import { RegisterComponent } from './Login & Register/RegisterComponent/Register
 import { LoginComponent } from './Login & Register/LoginComponent/Login/Login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ProductFeedbackComponent } from './product/product-feedback/product-feedback.component';
+import { MyFeedbackComponent } from './MyFeedback/MyFeedback/MyFeedback.component';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HomeComponent,NavbarComponent,HttpClientModule,
-  ProductCardComponent,ProductListComponent,ProductDetailsComponent,RegisterComponent,
-  LoginComponent,HttpClientModule,ProductFeedbackComponent],
+  imports: [RouterOutlet,HomeComponent,NavbarComponent,
+             HttpClientModule,ProductCardComponent,ProductListComponent,
+             ProductDetailsComponent,RegisterComponent,LoginComponent,
+             HttpClientModule,ProductFeedbackComponent,MyFeedbackComponent],
   // providers: [{ provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true }],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
