@@ -57,19 +57,16 @@ namespace backend.Service
                 {
                     return false; // User not found
                 }
-
-                var existingFeedback = _db.feedbacks.Find(updatedFeedback.Email);
+                var existingFeedback = _db.feedbacks.FirstOrDefault(f => f.Email == updatedFeedback.Email &&  f.ProductId == updatedFeedback.ProductId);
                 if (existingFeedback == null)
                 {
                     return false; // Product not found
                 }
-
                 var existingProduct = _db.products.Find(updatedFeedback.ProductId);
                 if (existingProduct == null)
                 {
                     return false;
                 }
-
                 existingFeedback.Name = updatedFeedback.Name;
                 existingFeedback.Email = updatedFeedback.Email;
                 existingFeedback.ProductId = updatedFeedback.ProductId;

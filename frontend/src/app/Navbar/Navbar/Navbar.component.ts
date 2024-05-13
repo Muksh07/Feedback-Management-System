@@ -21,7 +21,8 @@ export class NavbarComponent implements OnInit
   ngOnInit() 
   {
     this.rolebase.currentUser.subscribe(user => {
-      if (user) {
+      if (user) 
+      {
         this.loggedinuser = user['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
       }
     });    

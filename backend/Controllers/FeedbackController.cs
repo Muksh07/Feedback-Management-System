@@ -55,10 +55,18 @@ namespace backend.Controllers
         [HttpPut]
         [Route("UpdateFeedback")]
         [Authorize(Roles = "user")]
-        public IActionResult UpdateFeedback(Feedback updatedFeedback)
+        public IActionResult UpdateFeedback(feedbackDto feedbackdto)
         {
             try
             {
+                 var updatedFeedback = new Feedback
+                {
+                    Name = feedbackdto.name,
+                    Email = feedbackdto.email,
+                    ProductId = feedbackdto.productId,
+                    Rating = feedbackdto.rating,
+                    Comment = feedbackdto.comment
+                };
                 var feedbackUpdated = functionality.UpdateFeedback(updatedFeedback);
                 if (!feedbackUpdated)
                 {
