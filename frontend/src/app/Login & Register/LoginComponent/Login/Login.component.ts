@@ -30,12 +30,18 @@ export class LoginComponent
           if (response.token) 
           {
             localStorage.setItem('token', response.token);
-
             const user = this.rolebase.decodeToken(response.token);
             this.rolebase.updateCurrentUser(user);
-
             this.alertify.success('Login successfull')
-            this.myRouter.navigate(['products'])
+             // Redirect based on user role
+             if (user && user['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] === 'admin') 
+             {
+              this.myRouter.navigate(['dashboard']);
+             } 
+             else 
+             {
+              this.myRouter.navigate(['products']);
+             }
           } 
           else 
           {

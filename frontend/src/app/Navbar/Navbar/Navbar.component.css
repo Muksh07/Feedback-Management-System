@@ -27,3 +27,31 @@ nav a {
  .icon{
    color: #ff6600; 
  }
+
+ .sidebar{
+   height: 100%;
+   margin-top:70px;
+   width: 150px;
+   position: fixed;
+   left: 0;
+   background-color: rgb(98, 91, 91);
+   padding-top: 0px;
+    
+ }
+ 
+ .sidebar a {
+   font-weight: normal;
+   padding: 10px;
+   text-decoration: none;
+   color: white;
+   display: block;
+ }
+ 
+ .sidebar a:hover {
+   background-color:black;
+ }
+
+ .active2{
+   background-color:black;
+   transform: scale(1); 
+ }

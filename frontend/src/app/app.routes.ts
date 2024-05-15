@@ -6,6 +6,10 @@ import { ProductListComponent } from './product/Product-list/Product-list.compon
 import { ProductDetailsComponent } from './product/Product-details/Product-details.component';
 import { ProductFeedbackComponent } from './product/product-feedback/product-feedback.component';
 import { MyFeedbackComponent } from './MyFeedback/MyFeedback/MyFeedback.component';
+import { DashboardComponent } from './Admin/Dashboard/Dashboard/Dashboard.component';
+import { UserManagementComponent } from './Admin/UserManagement/UserManagement/UserManagement.component';
+import { ProductManagementComponent } from './Admin/ProductManagement/ProductManagement/ProductManagement.component';
+import { FeedbackManagementComponent } from './Admin/FeedbackManagement/FeedbackManagement/FeedbackManagement.component';
 
 
 export const  myRouting :Routes = [
@@ -16,7 +20,12 @@ export const  myRouting :Routes = [
     { path: 'product-details/:id', component: ProductDetailsComponent },
     {path: 'feedback/:productId' , component: ProductFeedbackComponent},
     {path: 'product-details/:id', component: ProductDetailsComponent},
-    { path: 'my-feedbacks', component: MyFeedbackComponent }
+    { path: 'my-feedbacks', component: MyFeedbackComponent },
+
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'UserManagement', component: UserManagementComponent },
+    { path: 'ProductManagement', component: ProductManagementComponent },
+    { path: 'FeedbackManagement', component: FeedbackManagementComponent }
     // {path: 'alumni-list', component: HomeComponent , canActivate:[customAuthentication]},
     // {path: '', component: StartBtnComponent},
 ]

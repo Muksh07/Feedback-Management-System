@@ -128,19 +128,15 @@ namespace backend.Service
             try
             {
                 // return _db.products.ToList();
-                var result = (from feedback in _db.feedbacks
-                              join product in _db.products on feedback.Id equals product.id
-                              select new
-                              {
-                                  feedback.Id,
-                                  feedback.Name,
-                                  feedback.Comment,
-                                  feedback.Email,
-                                  feedback.Rating,
-                                  productid = product.id,
-                                  productName = product.Name
-                              }).ToList<object>();
-
+                var result = _db.feedbacks.Select(feedback => new
+                {
+                    feedback.Id,
+                    feedback.Name,
+                    feedback.Comment,
+                    feedback.Email,
+                    feedback.Rating,
+                    feedback.ProductId
+                }).ToList<object>();
                 return result;
             }
             catch (Exception e)
@@ -148,7 +144,6 @@ namespace backend.Service
                 Console.WriteLine($"Error occurred: {e.Message}");
                 throw;
             }
-
         }
 
         public List<Feedback> GetFeedbackByUserEmail(string email)

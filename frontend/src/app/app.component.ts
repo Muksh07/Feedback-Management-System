@@ -12,6 +12,11 @@ import { LoginComponent } from './Login & Register/LoginComponent/Login/Login.co
 import { BrowserModule } from '@angular/platform-browser';
 import { ProductFeedbackComponent } from './product/product-feedback/product-feedback.component';
 import { MyFeedbackComponent } from './MyFeedback/MyFeedback/MyFeedback.component';
+import { DashboardComponent } from './Admin/Dashboard/Dashboard/Dashboard.component';
+import { FeedbackManagementComponent } from './Admin/FeedbackManagement/FeedbackManagement/FeedbackManagement.component';
+import { ProductManagementComponent } from './Admin/ProductManagement/ProductManagement/ProductManagement.component';
+import { UserManagementComponent } from './Admin/UserManagement/UserManagement/UserManagement.component';
+import { FeedbackPieChartComponent } from './Admin/Charts/PieChart/FeedbackPieChart/FeedbackPieChart.component';
 
 
 
@@ -21,7 +26,9 @@ import { MyFeedbackComponent } from './MyFeedback/MyFeedback/MyFeedback.componen
   imports: [RouterOutlet,HomeComponent,NavbarComponent,
              HttpClientModule,ProductCardComponent,ProductListComponent,
              ProductDetailsComponent,RegisterComponent,LoginComponent,
-             HttpClientModule,ProductFeedbackComponent,MyFeedbackComponent],
+             HttpClientModule,ProductFeedbackComponent,MyFeedbackComponent,
+             DashboardComponent,FeedbackManagementComponent,ProductManagementComponent,
+            UserManagementComponent,FeedbackPieChartComponent],
   // providers: [{ provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true }],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

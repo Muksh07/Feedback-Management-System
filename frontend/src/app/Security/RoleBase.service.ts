@@ -10,7 +10,6 @@ export class RoleBaseService {
     const user = token ? this.decodeToken(token) : null;
     this.currentUserSubject = new BehaviorSubject<any>(user);
   }
-
   public decodeToken(token: any): any 
   {
     try 
@@ -24,18 +23,15 @@ export class RoleBaseService {
       return null;
     }
   }
-
   get currentUser() 
   {
     return this.currentUserSubject.asObservable();
   }
-
   decodedToken(): any 
   {
     const token = localStorage.getItem('token');
     return this.decodeToken(token);
   }
-
   public updateCurrentUser(user: any): void 
   {
     this.currentUserSubject.next(user);

@@ -80,13 +80,6 @@ export class MyFeedbackComponent implements OnInit, OnDestroy
       }
     }
   
-  
-    handleDeleteFeedback(feedbackId: number): void 
-    {
-      console.log('Delete feedback:', feedbackId);
-    }
-
-
     openEditDialog(feedback: Feedback): void 
     {
       const dialogRef = this.dialog.open(UpdateFeedbackComponent, {
