@@ -9,6 +9,7 @@ export class UserService
 {
   private apiUrl = 'http://localhost:5131/FMS/User/Login Account';
   private apiUrlca = 'http://localhost:5131/FMS/User/Create UserAccount';
+  private apiUrlall = 'http://localhost:5131/FMS/User/GetAllUsers';
   constructor(private http: HttpClient) { }
   login(email: string, password: string): Observable<any> 
   {
@@ -20,5 +21,11 @@ export class UserService
   {
       return this.http.post<any>(this.apiUrlca, user);
   } 
+
+  getAllUsers():Observable<any>
+  {
+    return this.http.get<any>(this.apiUrlall);
+  }
+
 }
 

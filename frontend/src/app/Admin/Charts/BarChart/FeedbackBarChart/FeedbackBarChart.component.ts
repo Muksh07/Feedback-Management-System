@@ -71,7 +71,7 @@ export class FeedbackBarChartComponent implements OnInit
         data: {
           labels: labels,
           datasets: [{
-            label: 'Average Rating per Product',
+            label: 'Average Rating of Products',
             data: averageRatings,
             backgroundColor: '#FF5733', // Customize bar color
           }],
@@ -89,7 +89,7 @@ export class FeedbackBarChartComponent implements OnInit
             x: {
               title: {
                 display: true,
-                text: 'Product'
+                text: 'Products'
               }
             }
           },

@@ -78,7 +78,7 @@ namespace backend.Service
             return _db.users.Select(u => 
             new Users{ Id = u.Id, Name = u.Name, 
                        Email = u.Email, Gender = u.Gender,
-                       PhoneNumber = u.PhoneNumber, status = u.status}).ToList();
+                       PhoneNumber = u.PhoneNumber, Role = u.Role, status = u.status}).ToList();
         }
 
 

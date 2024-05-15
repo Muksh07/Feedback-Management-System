@@ -39,10 +39,15 @@
 </div>
 <ng-container *ngIf="isAdmin">
   <div class="sidebar">
-    <a class="nav-link custom-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active2" routerLink="/">Home</a>
-    <a class="nav-link custom-link" routerLinkActive="active2" routerLink="/dashboard">Dashboard</a>
-    <a class="nav-link custom-link" routerLinkActive="active2" routerLink="/UserManagement">Users</a>
-    <a class="nav-link custom-link" routerLinkActive="active2" routerLink="/ProductManagement">Products</a>
-    <a class="nav-link custom-link" routerLinkActive="active2" routerLink="/FeedbackManagement">Feedbacks</a>
+    <a class="nav-link custom-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active2" routerLink="/">
+      <i class="fa-sharp fa-solid fa-house"></i> Home</a>
+    <a class="nav-link custom-link" routerLinkActive="active2" routerLink="/dashboard">
+      <i class="fa-sharp fa-solid fa-gauge"></i> Dashboard</a>
+    <a class="nav-link custom-link" routerLinkActive="active2" routerLink="/UserManagement">
+      <i class="fa-sharp fa-solid fa-user"></i> Users</a>
+    <a class="nav-link custom-link" routerLinkActive="active2" routerLink="/ProductManagement">
+      <i class="fa-brands fa-product-hunt"></i> Products</a>
+    <a class="nav-link custom-link" routerLinkActive="active2" routerLink="/FeedbackManagement">
+      <i class="fa-sharp fa-solid fa-comment-medical"></i> Feedbacks</a>
   </div>
 </ng-container>

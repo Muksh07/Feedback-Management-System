@@ -1,14 +1,14 @@
 .pie{
-    margin-top: 70px;
+    
     margin-left: 150px;
     height: 300px;
     width: 300px;
 }
 .bar{
-    margin-top: 70px;
+    
     height: 300px;
     width: 300px;
-    margin-left: 200px;
+    margin-left: 150px;
 }
 .dash{
     display: flex;
