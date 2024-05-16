@@ -100,16 +100,7 @@ namespace backend.Controllers
         {
             try
             {
-                // var token = HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
-                // var tokenClaim = TokenManager.ValidateToken(token);
-
-                // if (tokenClaim == null || !tokenClaim.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin"))
-                // {
-                //     return StatusCode((int)HttpStatusCode.Unauthorized);
-                // }
-
                 var users = functionality.GetAllUsers();
-
                 return Ok(users);
             }
             catch
@@ -121,18 +112,11 @@ namespace backend.Controllers
 
         [HttpPut]
         [Route("UpdateUserStatus")]
-        // [CustomAuthenticationFilter]
         [Authorize(Roles = "admin")]
         public IActionResult UpdateUserStatus(int userId, string newStatus)
         {
             try
             {
-                // var token = Request.Headers["Authorization"].ToString().Split(' ')[1];;
-                // var tokenClaim = TokenManager.ValidateToken(token);
-                // if (tokenClaim == null || !tokenClaim.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin"))
-                // {
-                //     return Unauthorized();
-                // }
                 var updated = functionality.UpdateUserStatus(userId, newStatus);
                 if (updated)
                 {
@@ -147,32 +131,58 @@ namespace backend.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("UpdateUserRole")]
+        [Authorize(Roles = "admin")]
+        public IActionResult UpdateUserRole(int userId, string newRole)
+        {
+            try
+            {
+                var updated = functionality.UpdateUserRole(userId, newRole);
+                if (updated)
+                {
+                    return Ok("User Role updated successfully");
+                }
+                return NotFound("User not found");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error occurred: {e.Message}");
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
+
         [HttpPost]
         [Route("Change Password")]
         // [CustomAuthenticationFilter]
-        [Authorize(Roles = "admin,,user")]
+        [Authorize(Roles = "admin,user")]
         public IActionResult ChangePassword(ChangePassword model)
         {
             try
             {
-                // var token = Request.Headers["Authorization"].ToString().Split(' ')[1];
-                // var tokenClaim = TokenManager.ValidateToken(token);        
-                // // Check if token claim exists and has the appropriate role
-                // if (tokenClaim == null || !tokenClaim.HasClaim(c => c.Type == ClaimTypes.Role && (c.Value == "admin" || c.Value == "user")))
-                // {
-                //     return Unauthorized();
-                // }
                 var result = functionality.ChangePassword(model.Email, model.OldPassword, model.NewPassword);
-                // if (result is string message)
-                // {
-                //     return BadRequest(message);
-                // }
                 return Ok(result);
             }
             catch (Exception e)
             {
                 Console.WriteLine($"Error occurred: {e.Message}");
                 return StatusCode(500, "Internal Server Error");
+            }
+        }
+
+        [HttpDelete]
+        [Route("DeleteUser")]
+        [Authorize(Roles = "admin")]
+        public IActionResult DeleteUser(int id)
+        {
+            var success = functionality.DeleteUser(id);
+            if (success)
+            {
+                return Ok("User deleted successfully");
+            }
+            else
+            {
+                return NotFound("User not found");
             }
         }
     }

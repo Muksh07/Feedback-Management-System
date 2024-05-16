@@ -1,3 +1,22 @@
 .userTable{
     margin-left: 120px;
 }
+.search-filters-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .search-input,
+  .filter-dropdown {
+    width: 30%;
+  }
+
+
+  
+
+  
+
+  
+
+  

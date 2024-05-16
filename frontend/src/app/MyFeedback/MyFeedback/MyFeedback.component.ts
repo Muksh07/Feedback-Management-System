@@ -25,23 +25,19 @@ export class MyFeedbackComponent implements OnInit, OnDestroy
   displayedColumns: string[] = ['productName', 'rating', 'comment', 'actions'];
   private feedbackSubscription: Subscription | undefined;
   userEmail : string = '';
-
   constructor(private feedbackService: FeedbackService, private productService: ProductService,
     private rolebase:RoleBaseService,private dialog: MatDialog,private alertify:AlertifyService) {}
-
     ngOnInit() 
     {
       this.getUserEmail(); // Call function to retrieve current user's email
     }
-  
     ngOnDestroy() 
     {
       if (this.feedbackSubscription) 
       {
         this.feedbackSubscription.unsubscribe();
       }
-    }
-  
+    } 
     getUserEmail(): void 
     {
       this.rolebase.currentUser.subscribe(user => {
@@ -51,7 +47,6 @@ export class MyFeedbackComponent implements OnInit, OnDestroy
         }
       });
     }
-  
     loadFeedbackData(): void 
     {
       if (this.userEmail) {
@@ -79,14 +74,12 @@ export class MyFeedbackComponent implements OnInit, OnDestroy
         );
       }
     }
-  
     openEditDialog(feedback: Feedback): void 
     {
       const dialogRef = this.dialog.open(UpdateFeedbackComponent, {
         width: '400px',
         data: { ...feedback } // Pass the feedback data to the dialog
       });
-  
       dialogRef.afterClosed().subscribe(result => {
         if (result) 
         {
@@ -95,7 +88,6 @@ export class MyFeedbackComponent implements OnInit, OnDestroy
         }
       });
     }
-
     updateFeedback(updatedFeedback: Feedback): void 
     {
       this.feedbackService.updateFeedback(updatedFeedback).subscribe(
@@ -110,14 +102,12 @@ export class MyFeedbackComponent implements OnInit, OnDestroy
         }
       );
     }
-
     openDeleteDialog(feedback: Feedback): void 
     {
       const dialogRef = this.dialog.open(DeleteFeedbackComponent, {
         width: '400px',
         data: { feedback } // Pass the feedback data to the dialog
       });
-  
       dialogRef.afterClosed().subscribe(result => {
         if (result === true) {
           // User confirmed deletion (result is true)
@@ -125,7 +115,6 @@ export class MyFeedbackComponent implements OnInit, OnDestroy
         }
       });
     }
-
     deleteFeedback(feedback: Feedback): void 
     {
       this.feedbackService.deleteFeedback(feedback.id).subscribe(

@@ -4,21 +4,17 @@ using backend.Database;
 using backend.Functionality;
 using backend.Security;
 using Microsoft.AspNetCore.Mvc;
-
 namespace backend.Service
 {
     public class UserOperations : IUser
     {
         private readonly DatabaseContext _db;
-
         public UserOperations(DatabaseContext db)
         {
             _db = db;
         }
-
         object IUser.accountCreate(Users user)
         {
-
             try
             {
                 var userObj = _db.users.FirstOrDefault(u => u.Email == user.Email);
@@ -40,15 +36,12 @@ namespace backend.Service
                 Console.WriteLine($"Error occurred: {e.Message}");
                 return 0;
             }
-
         }
-
         object IUser.loginAccount(string email, string password)
         {
             try
             {
                 var user = _db.users.FirstOrDefault(u => u.Email == email && u.Password == password);
-
                 if (user != null)
                 {
                     if (user.status == "true")
@@ -80,13 +73,10 @@ namespace backend.Service
                        Email = u.Email, Gender = u.Gender,
                        PhoneNumber = u.PhoneNumber, Role = u.Role, status = u.status}).ToList();
         }
-
-
         public bool UpdateUserStatus(int userId, string newStatus)
         {
             try
-            {
-                
+            {              
                 var user = _db.users.Find(userId);
                 if (user != null)
                 {
@@ -102,7 +92,25 @@ namespace backend.Service
                 return false;
             }
         }
-
+        public bool UpdateUserRole(int userId, string newRole)
+        {
+            try
+            {              
+                var user = _db.users.Find(userId);
+                if (user != null)
+                {
+                    user.Role = newRole;
+                    _db.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error occurred: {e.Message}");
+                return false;
+            }
+        }
         public object ChangePassword(string email, string oldPassword, string newPassword)
         {
             try
@@ -115,6 +123,28 @@ namespace backend.Service
                 user.Password = newPassword;
                 _db.SaveChanges();
                 return "Password changed successfully";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error occurred: {e.Message}");
+                return false;
+            }
+        }
+        public bool DeleteUser(int userId)
+        {
+            try
+            {
+                var user = _db.users.Find(userId);
+                if (user != null)
+                {
+                    _db.users.Remove(user);
+                    _db.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false; // User with specified ID not found
+                }
             }
             catch (Exception e)
             {

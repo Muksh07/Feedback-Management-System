@@ -10,6 +10,8 @@ namespace backend.Functionality
         public object loginAccount(string email, string password);
         List<Users> GetAllUsers();
         bool UpdateUserStatus(int userId, string newStatus);
+        public bool UpdateUserRole(int userId, string newRole);
+        public bool DeleteUser(int userId);
 
         object ChangePassword(string email, string oldPassword, string newPassword);
     }
