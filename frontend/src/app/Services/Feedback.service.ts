@@ -33,7 +33,7 @@ updateFeedback(updatedFeedback: Feedback): Observable<any>
 deleteFeedback(feedbackId: number): Observable<void> 
 {
   const url = `${this.baseUrl}/DeleteFeedback/${feedbackId}`;
-  return this.http.delete<void>(url,{ responseType: 'text' as 'json' });
+  return this.http.delete<void>(url, {responseType: 'text' as 'json' });
 }
 
 getAllFeedback(): Observable<any> 

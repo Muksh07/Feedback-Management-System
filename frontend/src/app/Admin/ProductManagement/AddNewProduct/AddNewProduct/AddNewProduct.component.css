@@ -1,0 +1,38 @@
+.card-header {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .card-body .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .card-body .form-group label {
+    font-weight: bold;
+  }
+  
+  .card-body .form-group .form-control {
+    width: 100%;
+  }
+  
+  .card-body .btn {
+    margin-right: 10px;
+  }
+  
+  .card-body .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+  }
+
+  
+  .required {
+    color: red;
+  }
+  .button{
+    display: flex;
+    justify-content: center;
+}
+.btn-primary-custom{
+    background-color: black;
+    border: none;
+}

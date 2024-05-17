@@ -1,4 +1,7 @@
 <div class="mat-elevation-z8 productTable">
+  <div class="add-product-button">
+    <button class="btn btn-primary btn-primary-custom" (click)="openAddProductDialog()">Add New Product</button>
+  </div>
   <table mat-table [dataSource]="products" class="mat-elevation-z8">
 
     <!-- Product Name Column -->
@@ -26,7 +29,7 @@
         <button mat-icon-button color="primary" (click)="editProduct(product)" aria-label="Edit">
           <i class="fa-solid fa-pen-to-square"></i> 
         </button>
-        <button mat-icon-button color="warn" (click)="deleteProduct(product)" aria-label="Delete">
+        <button mat-icon-button color="warn" (click)="openDeleteDialog(product)" aria-label="Delete">
           <i class="fa-solid fa-trash"></i> 
         </button>
       </td>

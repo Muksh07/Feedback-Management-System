@@ -9,7 +9,7 @@ export class ProductService
 {
   private apiUrll = 'http://localhost:5131/FMS/Product';
   private apiUrl = 'http://localhost:5131/FMS/Product/GetAllProducts';
-  //private apiUrl2 = 'http://localhost:5131/FMS/Product/GetProductsById';
+  //private apiUrl2 = 'http://localhost:5131/FMS/Product/DeleteProduct/0';
   constructor(private http: HttpClient) { }
 
   getAllProducts(): Observable<Iproduct[]> 
@@ -20,15 +20,6 @@ export class ProductService
       );
   }
 
-  // getProductById(productId: number): Observable<Iproduct> 
-  // {
-  //   const url = `${this.apiUrl2}/${productId}`;
-  //   return this.http.get<Iproduct>(url)
-  //     .pipe(
-  //       catchError(this.handleError)
-  //     );
-  // }
-  
   getProductById(productId: number): Observable<any>
   {
     const url = `${this.apiUrll}/GetProductsById/${productId}`;
@@ -44,5 +35,22 @@ export class ProductService
   {
     console.error('An error occurred:', error.error);
     return throwError('Something went wrong; please try again later.');
+  }
+
+  updateProduct(product: any): Observable<string> 
+  {
+    const url = `${this.apiUrll}/UpdateProduct`;
+    return this.http.put(url, product, { responseType: 'text' });
+  }
+
+  addProduct(product: any): Observable<any> 
+  {
+    return this.http.post<any>(`${this.apiUrll}/AddProduct`, product);
+  }
+
+  deleteProduct(productId: number): Observable<string> 
+  {
+    const url = `${this.apiUrll}/DeleteProduct/${productId}`;
+    return this.http.delete(url,{ responseType: 'text' });
   }
 }

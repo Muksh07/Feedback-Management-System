@@ -116,11 +116,7 @@ namespace backend.Service
                 existingProduct.Name = updatedProduct.Name;
                 existingProduct.Description = updatedProduct.Description;
                 existingProduct.Clients = updatedProduct.Clients;
-                existingProduct.ImageUrl= updatedProduct.ImageUrl;
-                existingProduct.CategoryId = updatedProduct.CategoryId; 
-
                 _db.SaveChanges();
-
                 return true;
             }
             catch (Exception ex)

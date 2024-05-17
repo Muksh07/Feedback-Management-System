@@ -1,0 +1,25 @@
+.required {
+    color: #ff334b;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .btn-primary-custom{
+    background-color: black;
+    border: none; 
+    width: 25%;
+    margin-top: 8px;
+    margin-right: 8px;
+}
+.btn-secondary-custom{
+    width: 25%;
+    margin-top: 8px;
+}
+   
+.card-header {
+    font-weight: bold;
+  }
+.button{
+    display: flex;
+    justify-content: center;
+}

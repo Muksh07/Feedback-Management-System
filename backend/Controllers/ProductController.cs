@@ -4,6 +4,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using backend.Functionality;
+using backend.ModelDTO;
 using backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -101,23 +102,18 @@ namespace backend.Controllers
         [HttpPut]
         [Route("UpdateProduct")]
         [Authorize(Roles = "admin")]
-        public IActionResult UpdateProduct(Product updatedProduct)
+        public IActionResult UpdateProduct(ProductDto productDto)
         {
             try
             {
-                var product = functionality.GetProductsById(updatedProduct.id) as Product;
-                if (product == null)
+                var updatedProduct = new Product
                 {
-                    return NotFound($"Product with ID {updatedProduct.id} not found");
-                }
-
-                product.Name = updatedProduct.Name;
-                product.Description = updatedProduct.Description;
-                product.Clients = updatedProduct.Clients;
-                product.ImageUrl = updatedProduct.ImageUrl;
-                product.CategoryId = updatedProduct.CategoryId; 
-
-                var updated = functionality.UpdateProduct(product);
+                    id = productDto.id,
+                    Name = productDto.Name,
+                    Description = productDto.Description,
+                    Clients = productDto.Clients
+                };
+                var updated = functionality.UpdateProduct(updatedProduct);
                 if (updated)
                 {
                     return Ok("Product updated successfully");
@@ -133,7 +129,7 @@ namespace backend.Controllers
 
 
         [HttpDelete]
-        [Route("DelsteProduct/{id}")]
+        [Route("DeleteProduct/{id}")]
         [Authorize(Roles = "admin")]
         public IActionResult DeleteProduct(int id)
         {
