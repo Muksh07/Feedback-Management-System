@@ -39,6 +39,7 @@ export class UserManagementComponent implements OnInit {
       }
     );
   }
+  
   applyFilter(value: string): void {
     value = value.trim().toLowerCase();
     if (value) {

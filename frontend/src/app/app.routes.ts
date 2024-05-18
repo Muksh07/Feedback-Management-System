@@ -10,12 +10,14 @@ import { DashboardComponent } from './Admin/Dashboard/Dashboard/Dashboard.compon
 import { UserManagementComponent } from './Admin/UserManagement/UserManagement/UserManagement.component';
 import { ProductManagementComponent } from './Admin/ProductManagement/ProductManagement/ProductManagement.component';
 import { FeedbackManagementComponent } from './Admin/FeedbackManagement/FeedbackManagement/FeedbackManagement.component';
+import { ChangePasswordComponent } from './Login & Register/ChangePassword/ChangePassword/ChangePassword.component';
 
 
 export const  myRouting :Routes = [
     {path: '', component: HomeComponent},
     {path: 'sign-up', component: RegisterComponent},
     {path: 'log-in', component: LoginComponent},
+    {path: 'change-password', component: ChangePasswordComponent},
     { path: 'products', component: ProductListComponent },
     { path: 'product-details/:id', component: ProductDetailsComponent },
     {path: 'feedback/:productId' , component: ProductFeedbackComponent},

@@ -122,7 +122,7 @@ namespace backend.Service
                 }
                 user.Password = newPassword;
                 _db.SaveChanges();
-                return "Password changed successfully";
+                return true;
             }
             catch (Exception e)
             {

@@ -1,7 +1,9 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { IUser } from '../../Ifunctionality/IUser';
+import {jwtDecode} from 'jwt-decode'; 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -47,7 +49,30 @@ export class UserService
     const apiUrlWithParams = `${url}?userId=${userId}&newRole=${newRole}`;
     return this.http.put(apiUrlWithParams, {}, { responseType: 'text' });
   }
+
+  changePassword(oldPassword: string, newPassword: string): Observable<any> 
+  {
+    const url = `${this.apiUrld}/Change Password`;
+    const email = this.getTokenEmail();
+    const body = {email: email,oldPassword: oldPassword,newPassword: newPassword};
+    return this.http.post(url, body, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      responseType: 'text' as 'json'  // Change the response type to text
+    });
+  }
+
+  getTokenEmail(): string {
+    const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      return decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'];
+    }
+    return '';
+  }
   
 
 }
+
 

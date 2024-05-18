@@ -154,7 +154,6 @@ namespace backend.Controllers
 
         [HttpPost]
         [Route("Change Password")]
-        // [CustomAuthenticationFilter]
         [Authorize(Roles = "admin,user")]
         public IActionResult ChangePassword(ChangePassword model)
         {
