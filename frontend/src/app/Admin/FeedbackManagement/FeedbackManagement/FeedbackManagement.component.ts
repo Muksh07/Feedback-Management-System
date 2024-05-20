@@ -15,7 +15,6 @@ import { DeleteUserComponent } from '../../UserManagement/DeleteUser/DeleteUser/
 import { AlertifyService } from '../../../Services/alertify.service';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-
 @Component({
   selector: 'app-FeedbackManagement',
   standalone:true,
@@ -94,21 +93,17 @@ export class FeedbackManagementComponent implements OnInit
       }
     );
   }
-
   printFeedback(feedback: Feedback): void 
   {
     const doc = new jsPDF();
-
     doc.setFontSize(20);
     doc.text('Feedback Details', 10, 10);
-
     doc.setFontSize(12);
     doc.text(`Name: ${feedback.name}`, 10, 20);
     doc.text(`Email: ${feedback.email}`, 10, 30);
-    doc.text(`Product Name: ${feedback.name}`, 10, 40);
+    doc.text(`Product Name: ${feedback.productName}`, 10, 40);
     doc.text(`Rating: ${feedback.rating}`, 10, 50);
     doc.text(`Comment: ${feedback.comment}`, 10, 60);
-
     doc.save(`Feedback_${feedback.id}.pdf`);
   }
 }

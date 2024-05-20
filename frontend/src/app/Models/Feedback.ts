@@ -5,5 +5,6 @@ export interface Feedback {
     productId: number;
     rating: number;
     comment: string;
+    productName?: string;
   }
   
