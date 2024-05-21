@@ -11,6 +11,7 @@ import { UserManagementComponent } from './Admin/UserManagement/UserManagement/U
 import { ProductManagementComponent } from './Admin/ProductManagement/ProductManagement/ProductManagement.component';
 import { FeedbackManagementComponent } from './Admin/FeedbackManagement/FeedbackManagement/FeedbackManagement.component';
 import { ChangePasswordComponent } from './Login & Register/ChangePassword/ChangePassword/ChangePassword.component';
+import { CustomAuthentication } from './Security/Authentication';
 
 
 export const  myRouting :Routes = [
@@ -18,13 +19,13 @@ export const  myRouting :Routes = [
     {path: 'sign-up', component: RegisterComponent},
     {path: 'log-in', component: LoginComponent},
     {path: 'change-password', component: ChangePasswordComponent},
-    { path: 'products', component: ProductListComponent },
+    { path: 'products', component: ProductListComponent ,canActivate:[CustomAuthentication]},
     { path: 'product-details/:id', component: ProductDetailsComponent },
     {path: 'feedback/:productId' , component: ProductFeedbackComponent},
     {path: 'product-details/:id', component: ProductDetailsComponent},
     { path: 'my-feedbacks', component: MyFeedbackComponent },
 
-    { path: 'dashboard', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent},
     { path: 'UserManagement', component: UserManagementComponent },
     { path: 'ProductManagement', component: ProductManagementComponent },
     { path: 'FeedbackManagement', component: FeedbackManagementComponent }

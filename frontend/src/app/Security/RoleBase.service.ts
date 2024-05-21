@@ -36,6 +36,11 @@ export class RoleBaseService {
   {
     this.currentUserSubject.next(user);
   }
+
+  isloggedIn() : boolean
+  {
+    return !!localStorage.getItem('token');
+  }
 }
 
 
