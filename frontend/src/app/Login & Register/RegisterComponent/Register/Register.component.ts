@@ -22,8 +22,10 @@ export class RegisterComponent implements OnInit
     role: 'user',
     status: 'false'
   };
+  
   constructor(private userService: UserService,private alertify:AlertifyService) { }
   ngOnInit() {}
+
   onSubmit(registrationForm: NgForm) 
   {
     if(registrationForm.valid)
